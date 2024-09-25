@@ -1,17 +1,28 @@
-let rateSelect = document.getElementsByClassName("rate-select");
+let selectedRating = null;
 
-function selectedRating(item) {
+function selectRating(element) {
+  // Remove background from all previously selected elements
+  let rateSelect = document.getElementsByClassName("rate-select");
+  for (let i = 0; i < rateSelect.length; i++) {
+    rateSelect[i].style.backgroundColor = ''; // Reset background color
+  }
 
-    for (let i = 0; i < rateSelect.length; i++) {
-        rateSelect[i].style.backgroundColor = ''; // Reset the background color
-    }
-
-    item.style.backgroundColor = 'hsl(25, 97%, 53%)';
+  // Set background for the currently selected element
+  element.style.backgroundColor = 'hsl(25, 97%, 53%)';
+  
+  // Store the selected rating value
+  selectedRating = element.getAttribute("value");
 }
 
-// Attach click event listener to each rate item
-for (let i = 0; i < rateSelect.length; i++) {
-    rateSelect[i].addEventListener('click', function() {
-        selectedRating(this); // Pass the clicked element to the function
-    });
+function submitRating() {
+  if (selectedRating) {
+    // Show the "Thank you" state
+    document.getElementById("rating-state").style.display = 'none';
+    document.getElementById("thank-you-state").style.display = 'block';
+
+    // Display the selected rating in the thank-you message
+    document.getElementById("selected-rating").textContent = selectedRating;
+  } else {
+    alert("Please select a rating before submitting!");
+  }
 }
