@@ -11,34 +11,48 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution a { color: hsl(228, 45%, 44%); text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <!-- Rating state start -->
+  <main class="card">
 
-  How did we do?
+      <!-- Rating state start -->
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
+      <div class="rating-state" id="rating-state">
+        <h1>How did we do?</h1>
 
-  1 2 3 4 5
+        <p>Please let us know how we did with your support request. All feedback is appreciated 
+          to help us improve our offering!</p>
+  
+        <ul class="rate-select-list">
+          <li value="1" class="rate-select" onclick="selectRating(this)">1</li>
+          <li value="2" class="rate-select" onclick="selectRating(this)">2</li>
+          <li value="3" class="rate-select" onclick="selectRating(this)">3</li>
+          <li value="4" class="rate-select" onclick="selectRating(this)">4</li>
+          <li value="5" class="rate-select" onclick="selectRating(this)">5</li>
+        </ul>
+  
+        <button class="submit-btn" onclick="submitRating()">Submit</button>
+      </div>
 
-  Submit
+      <!-- Rating state end -->
 
-  <!-- Rating state end -->
+      <!-- Thank you state start -->
 
-  <!-- Thank you state start -->
+      <div class="thank-you-state" id="thank-you-state">
+        <p>You selected <span id="selected-rating"></span> of 5</p>
 
-  You selected <!-- Add rating here --> out of 5
+        <h1>Thank you!</h1>
+  
+        <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+          don’t hesitate to get in touch!</p>
+      </div>
 
-  Thank you!
+      <!-- Thank you state end -->
 
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
+  </main>
 
   
   <div class="attribution">
